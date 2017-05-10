@@ -47,6 +47,7 @@ end
     @picture.destroy
     redirect_to pictures_path, notice: "ポストを削除しました！"
   end
+  
 
 
   private

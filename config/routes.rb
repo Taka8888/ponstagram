@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :contacts
   root 'top#index'
   resources :picture, only:[:index, :new, :create, :edit, :update, :destroy]do
