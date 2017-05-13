@@ -1,32 +1,6 @@
-class ContactsController < ApplicationController
-  before_action :set_blog, only: [:creat]
-
-  def new
-    if params[:back]
-    @contact = Contact.new(contacts_params)
-    else
-      @contact = Contact.new
-    end
-  end
-
-  def confirm
-    @contact = Contact.new(contacts_params)
-    render :new if @contact.invalid?
-  end
-
-  def create
-    @contact = Contact.create(contacts_params)
-    if @contact.save
-      redirect_to root_path, notice:"お問い合わせ完了しました！担当者よりご連絡致します。"
-      NoticeMailer.sendmail_contact(@contact).deliver
-      #"お問い合わせありがとうございました。\n改めて担当者よりご連絡をさせていただきます。"
-    else
-      render 'new'
-    end
-  end
-
-  private
-   def contacts_params
-     params.require(:contact).permit(:name, :email, :content)
-   end
+class Contact < ActiveRecord::Base
+      validates :name, :email, :content, presence:true
+      validates :name, :email, length: { maximum: 100 }
+      VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+      validates :email, format: { with: VALID_EMAIL_REGEX }
 end

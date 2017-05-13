@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  # devise_for :users, controllers: {
+  #   omniauth_callbacks: "users/omniauth_callbacks"
+  # }
   resources :contacts
   root 'top#index'
-  resources :picture, only:[:index, :new, :create, :edit, :update, :destroy]do
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
+  resources :pictures, only:[:index, :new, :create, :edit, :update, :destroy]do
     collection do
       post :confirm
     end
