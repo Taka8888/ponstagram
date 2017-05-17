@@ -16,11 +16,11 @@ end
   end
 
   def create
-    @picture = Picture.create(pictures_params)
+    @picture = Picture.new(pictures_params)
     @picture.user_id = current_user.id
     if @picture.save
-      redirect_to pictures_path, notice: "ポストを作成しました！"
-      NoticeMailer.sendmail_picture(@picture).deliver
+       redirect_to pictures_path, notice: "ポストを作成しました！"
+      # NoticeMailer.sendmail_picture(@picture).deliver
     else
       render 'new'
     end
@@ -47,12 +47,12 @@ end
     @picture.destroy
     redirect_to pictures_path, notice: "ポストを削除しました！"
   end
-  
+
 
 
   private
     def pictures_params
-      params.require(:picture).permit(:image, :content)
+      params.require(:picture).permit(:avatar, :avatar_cache, :title,:content)
     end
 
   #idをキーとして値を取得するメソッド

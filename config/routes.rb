@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  # devise_for :users, controllers: {
-  #   omniauth_callbacks: "users/omniauth_callbacks"
-  # }
-  resources :contacts
-  root 'top#index'
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
+}
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
@@ -15,6 +17,13 @@ Rails.application.routes.draw do
       post :confirm
     end
 end
+
+  resources :contacts, only:[:new, :create]do
+    collection do
+      post :confirm
+    end
+  end
+root 'top#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

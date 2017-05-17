@@ -57,7 +57,7 @@ header {
   padding-bottom: 15%;
   width: 100%;
   background-size: cover;
-  background-image: url("header.jpg");
+  background-color: white;
   background-attachment: fixed;
 }
 
@@ -71,7 +71,11 @@ header {
 .about {
   background-color: white;
   color: #333;
-  padding: 80px;
+  padding-top: 10px;
+  padding-bottom: 300px;
+  padding-left: 0px;
+  padding-right: 0px;
+
 }
 
 .function {
@@ -100,32 +104,86 @@ html {
 body {
   text-align: center;
 }
-.page-top-btn {
-  display: none;
-  border-radius: 50px;
-  background: #336699;
-  width: 60px;
-  height: 60px;
-  transition: all 0.3s;
-  cursor: pointer;
+.gototop {
   position: fixed;
-  right: 30px;
-  bottom: 30px;
-  z-index: 20;
-  a {
-    display: block;
-    color: white;
-    line-height: 60px;
-    text-decoration: none;
-  }
-  &:hover {
-  opacity: 0.7;
-  }
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  opacity: 0;
+  visibility: visible;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.gototop.active {
+  opacity: 1;
+  visibility: visible;
+}
+.gototop a {
+  width: 50px;
+  height: 50px;
+  display: table;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+}
+.gototop a i {
+  height: 50px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.gototop a:hover, .gototop a:active, .gototop a:focus {
+  text-decoration: none;
+  outline: none;
 }
 
-.flash {
-  color: white;
-  padding-top: 10px;
+.fh5co-nav #fh5co-logo {
+  font-size: 45px;
+  margin: 0;
+  padding: 1em 0;
+  font-family: "Libre Baskerville", serif;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+.fh5co-social-icons {
+  margin: 0;
+  padding: 0;
+}
+.fh5co-social-icons li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+.fh5co-social-icons li a {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  color: #658361;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.icon {
+  width: auto;
+  max-height: 40px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+.image-center{
+   text-align: center;
 }
 
 .gap{

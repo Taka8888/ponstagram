@@ -4,12 +4,17 @@ class NoticeMailer < ApplicationMailer
   # with the following lookup:
   #
   #   en.notice_mailer.sendmail_picture.subject
-  #
-      # 引数としてblogを追加します。
-　　def sendmail_picture(picture)
-     @picture = picture
+  #     def sendmail_picture(picture)
+  　　def sendmail_picture(picture)
+        @picture = picture
+　　　　　　  mail to: "puravida590@gmail.com",
+               subject: '【Ponstagram】ポストが投稿されました'
+    end
 
-    mail to: "puravida590@gmail.com"
-    subject: '【Ponstagram】写真が投稿されました'
+    def sendmail_contact(contact)
+        @contact = contact
+        mail to: @contact.email,
+        subject:'【Ponstagram】お問い合わせありがありました。'
+    end
+
   end
-end

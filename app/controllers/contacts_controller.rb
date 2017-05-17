@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :set_blog, only: [:creat]
+  # before_action :set_blog, only: [:creat]
 
   def new
     if params[:back]
@@ -18,7 +18,7 @@ class ContactsController < ApplicationController
     @contact = Contact.create(contacts_params)
     if @contact.save
       redirect_to root_path, notice:"お問い合わせ完了しました！担当者よりご連絡致します。"
-      NoticeMailer.sendmail_contact(@contact).deliver
+      #NoticeMailer.sendmail_contact(@contact).deliver
       #"お問い合わせありがとうございました。\n改めて担当者よりご連絡をさせていただきます。"
     else
       render 'new'
