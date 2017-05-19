@@ -6,11 +6,11 @@
      <%# バリデーションエラーの件数を表示します。%>
      <h2><%=@picture.errors.count %>件のエラーがあります。</h2>
 
-
      <ul>
      <%# @picture.errorsは@pictureをバリデーションした際のエラー情報です。
      # full_messagesは複数のエラーメッセージを表します。%>
      <% @picture.errors.full_messages.each do |msg| %>
+
       <li><%=msg %></li>
       <%end%>
      </ul>
@@ -21,8 +21,9 @@
   <%=f.text_field :title, class: 'form-control' %>
   <br>
   <div class="field">
+    <%=f.label :"画像" %>
     <%=  image_tag  @picture.avatar %>
-    <%= f.file_field :avatar %>
+    <%= f.file_field :avatar%>
     <%= f.hidden_field :avatar_cache %>
   </div>
 
@@ -33,4 +34,4 @@
   <%=f.submit '投稿', class: 'btn btn-primary btn-block'%>
 <%end%>
 
-<%=link_to "ブログ一覧画面に戻る", pictures_path %>
+<%=link_to "ポスト一覧画面に戻る", pictures_path %>

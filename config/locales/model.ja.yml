@@ -1,17 +1,19 @@
 ja:
   activerecord:
     models:
-      blog: "ブログ"
+      picture: "画像"
       contact: "お問い合わせ"
       user: "ユーザー"
     attributes:
-      blog:
+      picture:
         title: "タイトル"
         content: "内容"
+      　 avatar: "画像"
       contact:
         name: "名前"
         email: "メールアドレス"
         content: "内容"
+
       user:
         title: "タイトル"
         name: "名前"
@@ -21,4 +23,3 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
-        

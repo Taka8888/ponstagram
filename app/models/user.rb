@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
   mount_uploader :avatar, AvatarUploader #deviseの設定配下に追記
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.find_by(email: auth.info.email)
@@ -56,6 +56,6 @@ class User < ActiveRecord::Base
       else
         params.delete :current_password
         update_without_password(params, *options)
+      end
     end
-  end
 end
