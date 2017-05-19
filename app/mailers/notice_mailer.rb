@@ -30,5 +30,3 @@ end
 #         mail to: @contact.email,
 #         subject:'【Ponstagram】お問い合わせありがありました。'
 #     end
-
-  end
