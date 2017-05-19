@@ -11,7 +11,7 @@ class NoticeMailer < ApplicationMailer
    @contact = contact
 
    mail to: @contact.email,
-       subject:'【Ponstagram】お問い合わせありがありました。'
+       subject:'【Ponstagram】お問い合わせありがとうございます。'
    end
 end
 
