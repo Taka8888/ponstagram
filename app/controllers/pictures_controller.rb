@@ -21,7 +21,7 @@ end
     @picture.user_id = current_user.id
     if @picture.save
        redirect_to pictures_path, notice: "ポストを作成しました！"
-      # NoticeMailer.sendmail_picture(@picture).deliver
+      NoticeMailer.sendmail_picture(@picture).deliver
     else
       render 'new'
     end

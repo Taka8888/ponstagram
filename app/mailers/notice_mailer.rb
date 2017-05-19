@@ -6,6 +6,7 @@ class NoticeMailer < ApplicationMailer
      mail to: "puravida590@gmail.com",
           subject: '【Ponstagram】ポストが投稿されました'
    end
+
    def sendmail_contact(contact)
    @contact = contact
 
