@@ -4,11 +4,13 @@ ja:
       picture: "画像"
       contact: "お問い合わせ"
       user: "ユーザー"
+
     attributes:
       picture:
         title: "タイトル"
         content: "内容"
-      　 avatar: "画像"
+        avatar: "画像"
+
       contact:
         name: "名前"
         email: "メールアドレス"
