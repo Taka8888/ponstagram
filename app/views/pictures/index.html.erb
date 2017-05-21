@@ -13,17 +13,19 @@
         <div class="profile_img">
            <p><%= profile_img(picture.user) if profile_img(picture.user)%></p>
         </div>
+        </div>
         <!-- ピクチャーを　投稿した人じゃなかったら -->
         　　　<%if picture.user.id == current_user.id%>
 
             <%=link_to "ポストを編集する", edit_picture_path(picture.id), data: {confirm: "本当に編集していいですか？"}, class: 'btn btn-default btn-success'%>
             <%=link_to "ポストを削除する", picture_path(picture.id), method: :delete, data: {confirm: "本当に削除していいですか？"}, class: 'btn btn-default btn-success'%>
           </div>
-      <%end%>
-      <!-- 　エンド -->
-    </div>
+          </div>
+<%end%>
   </div>
-  <%end%>
+      <!-- 　エンド -->
+<%end%>
+
 <%#=link_to "ブログを作成する", new_picture_path %>
 
 <div id="pictures-page-top-btn" class="pictures-page-top-btn">
