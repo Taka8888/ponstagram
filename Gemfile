@@ -66,4 +66,5 @@ end
  #image uploader
  gem 'carrierwave'
  gem 'mini_magick'
- gem 'paperclip', '~> 4.2' # at the writing of this post 
+ gem 'paperclip', '~> 4.2' # at the writing of this post
+ gem 'pusher'
